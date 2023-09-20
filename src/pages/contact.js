@@ -4,7 +4,7 @@ const Contact = () => {
     return (
         <div className="container contact">
             <div className="contact-form-wrapper">
-                <form action="#" className="contact-form">
+                <form action="#" className="contact-form" id="contactForm">
                     <h5 className="title">Get in Touch</h5>
                     <p className="description">Feel free to contact me if you need any assistance or question.</p>
                     <div>
