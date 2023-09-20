@@ -1,143 +1,101 @@
-import React from "react";
+import React, { useState } from "react";
+import Card from "./card";
+import Services from "./services"
+import { NavLink } from "react-router-dom";
 
 const About = () => {
+    const [totalHours, setTotalHours] = useState(0);
+
+    //hours of worked clocked in Calculate and display the total hours
+    const calculateTotalHours = () => {
+        const research = 12000;
+        const web = 3000;
+        const graphic = 2000;
+        const photography = 500;
+        const gis = 5000;
+
+        const hours = research + web + graphic + photography + gis;
+        setTotalHours(hours);
+    };
+
     return (
         <div className="container about">
             <div className="container text-white" id="about-section">
                 <h1>About Me:</h1>
-                <p id="about">Value and Quality Guaranteed anytime.</p>
-                <button type="button" className="btn btn_one text-white fw-bold" onclick="MoreAbout()">See More</button>
+                <p id="about">
+                    A versatile professional with a passion for web development, graphic design, and Geographic Information Systems (GIS) seeking to merge creativity and technology as a way to craft innovative real-world solutions. This journey is fueled by an insatiable curiosity and a love for exploring new horizons. Join me on this exciting journey of discovery as we push the boundaries of what\'s possible in the digital world.
+                </p>
             </div>
 
-            <div className="container text-white" id="skills">
-                <h1 classname="mb-5">Skillset:</h1>
+            <div className="container text-white mb-2" id="skills">
+                <h4 classname="mb-5">Skillset:</h4>
 
                 <div className="skills">
-                    <div className="skill">
-                        <p className="text-center">
-                            <i className="bi bi-vector-pen display-4"></i>
-                        </p>
-
-                        <p className="fw-bold text-center">01. Logo Design</p>
-
-                        <p className="text-center">
-                            Make your brand standout with an attention-provoking logo that sets you apart and creates the
-                            attention you need.
-                        </p>
-                    </div>
-
-                    <div className="skill">
-                        <p className="text-center">
-                            <i className="bi bi-code-slash display-4"></i>
-                        </p>
-
-                        <p className="fw-bold text-center">02. FrontEnd Web Dev.</p>
-
-                        <p className="text-center">
-                            Website Development that incoporates modern development systems including version control, HTML,
-                            CSS, and React.JS.
-                        </p>
-                    </div>
-
-                    <div className="skill">
-                        <p className="text-center">
-                            <i className="bi bi-person-workspace display-4"></i>
-                        </p>
-
-                        <p className="fw-bold text-center">03. Freelancing</p>
-
-                        <p className="text-center">
-                            Specializing in both research and data analysis models with both the basic and advanced systems
-                            to derive both meaningful and impactful information.
-                        </p>
-                    </div>
-
-                    <div className="skill">
-                        <p className="text-center">
-                            <i className="bi bi-globe2 display-4"></i>
-                        </p>
-
-                        <p className="fw-bold text-center">04. GIS</p>
-
-                        <p className="text-center">
-                            Work covers various aspects from data collection, analysis, representation, and periodic updates
-                            of the same.
-                        </p>
-                    </div>
+                    <Card
+                        title="01. Logo Design"
+                        description="Make your brand standout with an attention-provoking logo that sets you apart and creates the attention you need."
+                        imageSrc="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                    />
+                    <Card
+                        title="02. FrontEnd Web Dev."
+                        description="Website Development that incoporates modern development systems including version control, HTML, CSS, and React.JS."
+                        imageSrc="https://images.unsplash.com/photo-1624996752380-8ec242e0f85d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                    />
+                    <Card
+                        title="03. Freelancing"
+                        description="Specializing in both research and data analysis models with both the basic and advanced systems to derive both meaningful and impactful information."
+                        imageSrc="https://images.unsplash.com/photo-1592151450113-bdf5982da169?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                    />
+                    <Card
+                        title="04. GIS/ Photography"
+                        description="Work covers various aspects from data collection, analysis, representation, and periodic updates of the same."
+                        imageSrc="https://images.unsplash.com/photo-1478860002487-680cc42afbeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                    />
                 </div>
 
                 <div className="hours text-center" id="workhours">
-                    <h4 className="fw-bold text-decoration-underline">Work Hours</h4>
-
-                    <p id="total" className="fw-bold"></p>
+                    <button className="btn_one" onClick={calculateTotalHours}>Professional Work Hours</button>
+                    <p id="total" className="fw-bold">{totalHours}+</p>
                 </div>
 
-                <div className="estimate text-center">
-                    <button type="button" className="btn_one costing text-white" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">See My Estimate Cost</button>
+                <div className="services-offered">
+                    <h4 classname="mb-5">Services:</h4>
 
+                    <div className="job">
+                        <Services
+                            title="Web Development/ Design"
+                            description="Let's craft stunning websites that embody your brand and vision. By harnessing the latest technologies and best practices, lets ensure your site not only attracts but engages visitors, making a lasting impact."
+                            imageSrc="https://images.unsplash.com/photo-1600132806608-231446b2e7af?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+                        />
 
-                    <div className="modal fade text-black" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div className="modal-dialog">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h1 className="modal-title fs-5 fw-bold" id="exampleModalLabel">Cost Estimator</h1>
-                                    <button type="button" className="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div className="modal-body">
-                                    <div className="form">
-                                        <div className="page">
-                                            <label for="page" className="fw-bold">Number of Pages</label>
-                                            <select className="form-select" aria-label="Default select example" id="page">
-                                                <option value="5000">1-Page</option>
-                                                <option value="10000">2-Pages</option>
-                                                <option value="15000">3-Pages</option>
-                                                <option value="20000">4-Pages</option>
-                                                <option value="25000">5-Pages</option>
-                                            </select>
-                                        </div>
+                        <Services
+                            title="Code Review Services"
+                            description="Let me assist in ensuring your code meets industry standards and is working optimally. Comes with comprehensive, insightful, and thorough reviews. Some deliverables include improved code efficiency, security, and performance optimization."
+                            imageSrc="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80"
+                        />
 
-                                        <div className="type">
-                                            <label for="type" className="fw-bold">Type of Site</label>
-                                            <select className="form-select" aria-label="Default select example" id="type">
-                                                <option value="50">Static Site</option>
-                                                <option value="100">Dynamic Site</option>
-                                            </select>
-                                        </div>
+                        <Services
+                            title="Script Automation"
+                            description="Let's work on streamlining operations and boosting efficiency for business or personal functions. Its time to reduce redundant tasks that consume both valuable time and resources. I tailor-make scripts that automate these repetitive workflows, allowing you focus on what truly matters."
+                            imageSrc="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                        />
 
-                                        <div className="feature">
-                                            <label for="features" className="fw-bold">Additional Feature</label>
-                                            <select className="form-select" aria-label="Default select example" id="feature">
-                                                <option value="25">Non-Responsive</option>
-                                                <option value="50">Responsive</option>
-                                            </select>
-                                        </div>
+                        <Services
+                            title="Game Modding"
+                            description="As a passionate gamer, I would love to help enhance your gaming experience. Game scripting and modding service opens up a world of possibilities for players and game developers. You access public mods and custom creations, that breathe new life to your favorite games."
+                            imageSrc="https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80"
+                        />
 
-                                        <div className="duration">
-                                            <label for="weeks" className="fw-bold">Choose Timeframe</label>
-                                            <select className="form-select" aria-label="Default select example" id="duration">
-                                                <option value="7">6-Weeks</option>
-                                                <option value="14">5-Weeks</option>
-                                                <option value="21">4-Weeks</option>
-                                                <option value="28">3-Weeks</option>
-                                                <option value="35">2-Weeks</option>
-                                                <option value="42">1-Week</option>
-                                            </select>
-                                        </div>
-
-                                        <button type="button" className="btn_two" onclick="totalCost()">Show Cost</button>
-                                    </div>
-
-                                    <p id="cost" style={{fontWeight: 800}}></p>
-                                </div>
-                                <div className="modal-footer">
-                                    <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
+                        <Services
+                            title="Data Visualization Models"
+                            description="Let's work on transforming complex data into meaningful insights through the power of data visualization. In today's data-driven world, information can quickly become overwhelming. Get visually engaging and interactive graphical representations that effortlessly convey the essence of your data."
+                            imageSrc="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80"
+                        />
                     </div>
+
+                    <button className="btn_one">
+                        <NavLink to="/contact" >Contact</NavLink>
+                    </button>
                 </div>
             </div>
         </div>
@@ -145,40 +103,3 @@ const About = () => {
 }
 
 export default About;
-
-
-
-
-// hours button
-// variables
-var research = 12000;
-var web = 3000;
-var graphic = 2000;
-var photography = 500;
-var gis = 5000;
-
-var hours = research + web + graphic + photography + gis;
-
-let text = `${hours}+`;
-
-// document.getElementById("total").innerHTML = text;
-
-// // cost estimator
-// function totalCost() {
-//     const page = parseFloat(document.getElementById("page").value);
-//     const type = parseFloat(document.getElementById("type").value);
-//     const feature = parseFloat(document.getElementById("feature").value);
-//     const duration = parseFloat(document.getElementById("duration").value);
-
-//     const costEstimate = (type * feature * duration);
-//     const webCost = (page + parseFloat(costEstimate)).toFixed(0);
-
-//     document.getElementById("cost").innerText = `Ksh. ${webCost}`;
-// }
-
-// function buildOption(){
-//     let cost = document.getElementById("cost").value;
-//     let admitOption = (cost < 20000) ? "I will get back to You":"Let's Chat";
-
-//     document.querySelector("p#letsWork").innerHTML = admitOption
-// }
