@@ -20,9 +20,17 @@ const Hero = () => {
                         </p>
 
                         <div className="container d-flex justify-content-center mt-5" id="socials">
-                            <img src={require('./images/gmail.png')} alt="gmail" width="40px"></img>
-                            <img src={require('./images/linkedin.png')} alt="linkedin" width="40px"></img>
-                            <img src={require('./images/twitter.png')} alt="twitter" width="40px"></img>
+                            <NavLink to="https://github.com/Lvoh901" target="_blank">
+                                <img src={require('./images/github.png')} alt="gmail" width="35px"></img>
+                            </NavLink>
+
+                            <NavLink to="https://www.linkedin.com/in/odhiamboelvis/" target="_blank">
+                                <img src={require('./images/linkedin.png')} alt="linkedin" width="40px"></img>
+                            </NavLink>
+
+                            <NavLink to="https://twitter.com/LvohOdhis" target="_blank">
+                                <img src={require('./images/twitter.png')} alt="twitter" width="40px"></img>
+                            </NavLink>
                         </div>
 
                         <div className="container buttons ">
