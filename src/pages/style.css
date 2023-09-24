@@ -45,6 +45,7 @@ body {
 .navbar ul li a:hover {
     text-decoration: overline;
     text-decoration-color: darkgrey;
+    font-weight: 800;
 }
 
 /* hero */
@@ -146,6 +147,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 250px;
+    border: transparent;
 }
 
 .skill img {
